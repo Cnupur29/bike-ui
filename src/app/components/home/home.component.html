@@ -1,0 +1,46 @@
+<div class="container">
+    <form [formGroup]="bikeform" (ngSubmit)="submitRegistration()" novalidate> <!--uses formgroup bikeform defined in component and triggers submitRegistration() method on clicking submit-->
+        <div *ngIf= "validationMessage != ''"> <!--1st div to check if validationMessage is having something then print it-->
+            <h3 class="has-info">{{validationMessage}}</h3>
+        </div>
+        <div class="form-group">
+            <label>Buyer Name</label>
+            <input type="text" class="form-control" formControlName="name" required autofocus> <!--input of type text and mapped to formControl name defined in formGroup in component-->
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" formControlName="email" required autofocus>
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="text" class="form-control" formControlName="phone" required autofocus>
+        </div>
+        <div class="form-group">
+            <label>Model</label>
+             <select class="form-control" formControlName="model" required> <!--type select-->
+            <option value="">Please select a Bike Model</option> <!--option default value = ""-->
+            <option *ngFor= "let m of models" [value]="m">
+                {{m}}
+            </option>
+             </select>
+        </div>
+        <div class="form-group">
+            <label>Serial Number</label>
+            <input type="text" class="form-control" formControlName="serialNumber" required autofocus>
+        </div>
+        <div class="form-group">
+            <label>Purchase Price</label>
+            <input type="text" class="form-control" formControlName="purchasePrice" required autofocus>
+        </div>
+        <div class="form-group">
+            <label>Purchase Date</label>
+            <input type="text" class="form-control" formControlName="purchaseDate" required autofocus>
+        </div>
+        <div class="form-group">
+            <label>Contact</label>
+            <input type="text" class="form-control" formControlName="contact" required autofocus>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
